@@ -1,0 +1,40 @@
+<h1>Make a Reservation</h1>
+<% if @reservation.errors.any? %>
+	<ul class="error_list">
+		<%= @reservations.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<%end %>
+	</ul>
+<% end %>
+
+<%= form_for(@reservation) do |f| %>
+  
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :party_size %>
+    <%= f.text_field :party_size %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time %> 
+    <%= f.time_select :time, ampm: true %>
+ </div>
+
+ <%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
+ <br>
+
+ <div class="actions">
+  <%= f.submit %>
+ </div>
+
+<% end %>

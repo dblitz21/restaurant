@@ -7,6 +7,7 @@ class RestaurantsController < ApplicationController
 
 
   def show
+    @reservation = Reservation.new
   end
 
   # GET /restaurants/new
@@ -38,6 +39,9 @@ class RestaurantsController < ApplicationController
   # PATCH/PUT /restaurants/1
   # PATCH/PUT /restaurants/1.json
   def update
+    # one could add some validation here to check that the 
+    # current user matches the user associated with the eatery
+
     respond_to do |format|
       if @restaurant.update(restaurant_params)
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
@@ -52,6 +56,10 @@ class RestaurantsController < ApplicationController
   # DELETE /restaurants/1
   # DELETE /restaurants/1.json
   def destroy
+
+    #one could add some validation here to check that the 
+    # current user matches
+    
     @restaurant.destroy
     respond_to do |format|
       format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
@@ -67,6 +75,6 @@ class RestaurantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :description)
+      params.require(:restaurant).permit(:name, :description, :address_street, :phone, :address_city, :address_state, :address_zip)
     end
 end
