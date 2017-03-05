@@ -25,7 +25,8 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
-    @reservation.owner_id = current_owner.id
+    @reservation.owner = current_owner
+    
     #@reservation = current_owner.reservations.new(reservation_params)
 
 
