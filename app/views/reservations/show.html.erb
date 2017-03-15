@@ -1,6 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Restaurant Name:</strong>
+  <%= @reservation.restaurant.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @reservation.restaurant.description %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @reservation.restaurant.phone %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= @reservation.restaurant.address_street %>
+  <%= @reservation.restaurant.address_city %>
+  <%= @reservation.restaurant.address_state %>
+  <%= @reservation.restaurant.address_zip %>
+
+</p>
+
+<p>
   <strong>E-mail:</strong>
   <%= @reservation.email %>
 </p>

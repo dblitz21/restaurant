@@ -3,5 +3,5 @@ class Reservation < ApplicationRecord
 		presence: { :message => "cannot be blank" }
 
 	belongs_to :restaurant
-	belongs_to :owner 
+	belongs_to :user 
 end

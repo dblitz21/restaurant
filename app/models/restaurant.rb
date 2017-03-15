@@ -8,5 +8,5 @@ class Restaurant < ApplicationRecord
 	validates :address_state, length: { maximum: 2, too_long: "Enter a Two Letter Abbreviation for State"}
 
 
-	belongs_to :owner
+	belongs_to :user
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301201225) do
+ActiveRecord::Schema.define(version: 20170315161806) do
 
   create_table "owners", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -38,11 +38,11 @@ ActiveRecord::Schema.define(version: 20170301201225) do
     t.string   "email"
     t.string   "phone"
     t.integer  "restaurant_id"
-    t.integer  "owner_id"
+    t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["owner_id"], name: "index_reservations_on_owner_id"
     t.index ["restaurant_id"], name: "index_reservations_on_restaurant_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20170301201225) do
     t.text     "description"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "owner_id"
+    t.integer  "user_id"
     t.string   "phone"
     t.string   "address_street"
     t.string   "address_city"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20170301201225) do
     t.string   "address_zip"
     t.string   "website"
     t.string   "image_url"
-    t.index ["owner_id"], name: "index_restaurants_on_owner_id"
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

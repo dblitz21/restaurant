@@ -22,7 +22,7 @@ class RestaurantsController < ApplicationController
   # POST /restaurants
   # POST /restaurants.json
   def create
-    @restaurant = current_owner.restaurants.new(restaurant_params)
+    @restaurant = current_user.restaurants.new(restaurant_params)
     
 
     respond_to do |format|
